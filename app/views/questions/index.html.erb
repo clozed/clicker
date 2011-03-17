@@ -1,0 +1,25 @@
+<h1>Listing Questions</h1>
+<p id="notice"><%= notice %></p>
+<% form_tag do%>
+	<p>
+	Enter user ID: 
+	<input type="text" name="user_id"/>
+	</p>
+	<% @questions.each do |q| %>
+	<%= q.question %>
+
+		<ul style="list-type:none;">
+   		 <% @choices[q.id].each do |c| %>
+
+		<%= radio_button_tag 'q' + q.id.to_s, c.id %><%= c.choice %><br>
+
+
+		<% end %>
+		</ul>
+	<% end %>
+	<%= submit_tag 'Submit'%>
+
+<% end %>
+
+
+
